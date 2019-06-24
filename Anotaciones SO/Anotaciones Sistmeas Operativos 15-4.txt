@@ -1,0 +1,51 @@
+LUNES 22 PARCIAL HASTA PAGINA 13 DEL APUNTE 5/PPT 6
+
+gnu/linux
+paquetes
+4 libertades
+kernel
+licencias
+virtualizacion
+
+
+-------------------------------
+
+que programas se pueden ejecutar como root, en que directorio
+
+touch FILE - si no existe el archivo lo crea, si existe le cambia la hora
+
+redirecciones 
+
+> - pisa lo que esta en un archivo
+>> - lo pone al final del archivo
+< - le pasas como entrada un archivo
+
+Para borrar puedo hacer
+
+echo "" > FILE - pero me deja el archivo con 1 byte
+
+> FILE - borra el contenido y lo deja en 0 bytes porque no le estoy pasando nada`
+
+-------------------
+
+| - hace que la salida del comando anterior se la pase a comando siguiente
+
+& - hace que se ejecuten cosas en bkgrnd
+
+nohup ./prog01 & - permite que lo ejecute y si se cae mi conexion al servidor lo sigue corriendo y crea un archivo nohup
+que guarda toda la actividad del programam 
+
+; - ejecuta toda la cadena de comandos aunque haya un error en el medio
+
+&& - ejecuta una cadena de comandos hasta que termine la ejecucion o haya un error
+
+mkdir - me permite crear directorios, si le agrego -p crea subdirectorios si se lo pido
+
+tree DIRECTORIO - me muestra los subdirectorios de dicho directorio
+
+rm -rf DIRECTORIO - borra el directorio y sus subdirectorios
+
+ctrl + c - corto ejecucion
+
+ctrl + z - 
+

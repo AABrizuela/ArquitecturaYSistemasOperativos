@@ -1,0 +1,105 @@
+10-6
+
+LVM - RAID
+
+-Crear discos en configuracion de almacenamiento en VirtualBox (dinamico)
+
+-Correr maquina
+	
+	logearse como root
+	
+	ls -l dev/sd*
+	
+	Aparece sdb y sdc
+
+-Con fdisk puedo particionar
+
+	fdisk /dev/sdb
+
+	(Puedo tener 4 primarias y una extendida)
+	
+	n para crear particion nueva
+	
+	usamos 'p' para ver como quedaron las particiones
+
+	tenemos que cambiar el tipo de formato para poder usar lvm
+
+-LVM nos permite redimensionar grupos y volumens logicos. Hacer discos que se
+pueden editar. Puedo tener varios discos y asignarlos a un mismo grupo para poder
+usar ese espacio y redimensionarlo segun sea necesario. Se puede hacer 
+"en caliente" (con la pc prendida) pero para eso hay que desmontar el disco.
+
+-Tipos de particiones
+	
+	fd es para raid
+
+	8e es para cambiarlo a tipo linux lvm
+
+	con "t" puedo cambiar el tipo de filesystem, con "l" puedo ver la lista 
+	de tipos de particiones que puedo usar, despues uso "8e" (Linux LVM).
+
+	con "w" guardo los cambios que hice
+
+-Con fdisk -l /dev/sdb puedo ver como quedo el tipo de volumen sin necesidad
+de entrar al comando.
+
+-Se tienen que formatear las particiones para que queden en formato LVM
+
+	pvcreate /dev/sdb1 /dev/sdc1
+	
+	"pvcreate" genera volumenes fisicos en las PARTICIONES que creamos
+
+	"pvs" me va a traer las particiones o el formato de los que estan creados
+	en tipo lvm
+
+-Para crear Volume Groups y usuarios
+	
+	vgcreate name path(s)
+
+	es decir
+
+	vgcreate vg1 /dev/sdb1 ...nPaths
+
+	vgcreate genera groupos entre las particiones que creamos
+
+	vgremove quita discos asignados a cierto grupo
+
+	vgremove name path(s)
+	
+	con "vgs" vemos los grupos creados
+
+-Con "vgextend" extiendo el vg por nombre
+
+	vgextend name path(s)
+
+-Una vez que tenemos el o los grupos podemos asignar los volumenes logicos
+
+	lvcreate -l +100%FREE -n name group
+
+	es decir
+
+	lvcreate -1 +100%FREE -n lvappa vg1
+
+	"-l" es para indicarle el porcentaje de espacio que va a usar (+100%FREE)
+	con "-L" tenes que indicarle el tamaño en bytes (Mb, Gb, etc)
+
+	"-n" le indico el nombre (lvappa)
+
+-Despues formateamos los volumenes con "mkfs"
+	
+	mkfs.formato path(s)
+
+	es decir
+
+	mkfs.ext4 /dev/vg1/lvappa
+	
+-Creo los directorios appa y appb y los monto
+	
+	mkdir /appa /appb
+	
+	mount /dev/vg1/lvappb /appb
+
+-Crear usuarios con passwords
+
+-Crear directorios para las aplicaciones
+	

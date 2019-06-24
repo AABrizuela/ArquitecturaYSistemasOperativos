@@ -1,0 +1,41 @@
+PROGRAMACION SHELL
+
+Variables de entorno:
+
+	# env
+
+Las creo en mayusculas y le asigno cosas como si fuera string
+
+	# MIVAR='Hola'
+
+Las leo con el comando echo de la siguiente manera
+
+	# echo ${MIVAR}
+
+Puedo agregarle mas cosas a la variable usandola asi
+
+	# MIVAR=${MIVAR}:algo
+
+$ trae el contenido de la variable encerrada entre {}
+
+If en bash
+
+	if [ condicion ]; then
+		//codigo
+	elif [ condicion ]; then
+		//codigo
+	else
+		//codigo
+	fi
+
+Los espacios tienen que estar si o si. Se puede usar exit como si fuera un break
+
+For en bash
+
+	
+
+While en bash
+
+	while read LINEA; do
+		echo ${LINEA}
+	done < /etc/passwd

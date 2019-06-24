@@ -1,0 +1,8 @@
+
+APT-GET UPDATE - descarga las actualizaciones de paquetes
+
+APT-GET UPGRADE - actualiza los paquetes existentes y los instala
+
+APT-GET DIST-UPGRADE - nos permite actualizar la distribucion
+
+APT CLEAN - 

@@ -1,0 +1,48 @@
+PERMISOS Y USUARIOS
+
+chmod - cambia los permisos de archivos o carpetas.
+
+	Se toma 4 como permiso de escritura, 2 como permiso de lectura y
+	1 como permiso de ejecucion. La suma de estos numeros son el tipo
+	de permiso que va a tener el dueño, el grupo o el usuario.
+	
+	Lectura: 4
+	Escritura: 2
+	Ejecucion: 1
+	Lectura y escritura: 6
+	Lectura y ejecucion: 5
+	Lectura, escritura y ejecucion: 7
+	
+	Y asi sucesivamente...
+
+	El comando chmod usa estos numeros como parametros para los permisos de
+	cada miembro.
+
+	# chmod 740 archivo.txt
+
+	Segun la linea de arriba, ese comando en particular va a cambiar los permisos
+	de "archivo.txt" dejandolas con permisos completos para el dueño, permisos de
+	lectura para el grupo y ningun permiso para los usuarios.
+	
+	Tambien se puede usar + con la letra del tipo de permiso que queres como parametro.
+
+	# chmod +x archivo.txt
+
+	Segun la linea de arriba, ese comando en particular va a darle permiso de ejecucion a
+	todos los miembros.
+
+	
+	Archivos
+		666
+		022
+		---
+		644
+
+	Directorios
+		777
+		022
+		---
+		755
+
+chown - cambia el dueño de archivos o carpetas (no necesariamente tiene que existir dicho dueño)
+chgrp - cambia el grupo de archivos o carpetas (no necesariamente tiene que existir dicho usuario)

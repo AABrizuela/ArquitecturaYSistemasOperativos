@@ -1,0 +1,41 @@
+Expresiones regulares
+
+Una expresion regular es un lenguaje con el que vamos a escribir un patron de caracteres.
+
+Por ejemplo, una direccion de e-mail.
+
+direccion@dominio.com
+
+El patron de un mail es el mostrado anteriormente. Cada uno de estos elementos tienen que respetar ciertas reglas,
+como caracteres validos. Las direcciones de mail son cadenas de caracteres que van del 0 al 9 y de la A a la Z.
+Despues viene un @ y despues un dominio (que comparte las mismas reglas), luego el ".xxx" compartiendo las mismas reglas.
+Estamos escribiendo de una forma basica una direccion de mail, tambien aplican.
+
+regex101.com es una pagina util para ver expresiones regulares
+
+Reglas a tener en cuenta:
+
+-Las expresiones regulares se van a escribir como string, un string que representa un patron
+-Dentro de ese string voy a tener que poner caracteres.
+-Si yo hago una expresion regular que tenga un '.', representa cualquier caracter.
+-El '*' representa un grupo de caracteres repetido 0 o mas veces.
+-El '+' representa un grupo de caracteres repertido 1 o mas veces.
+-Tenemos rangos, ejemplo "[a-z]" me agarra todo lo que hay entre a y z. Si le pongo un '.' me busca cualquier caracter
+entre a y z. Si le pongo * me va a tomar cualquier caracter entre a y z repetido 0 o mas veces. Si le pongo un + me
+va a tomar cualquier caracter entre a y z repetido 1 o mas veces.
+-{numero} es un cuantificador.
+-\ se usa para buscar de forma literal el caracter a continuacion
+
+
+GREP - se utiliza para buscar patrones de texto, expresiones regulares
+	-i ~ busca mayusculas y minsculas
+	'^$' ~ busca al principio y al final, si no pongo nada en el medio me muestra los saltos de linea
+	-v ~ busca lo contrario a lo que le pongo a continuacion
+	'^' ~ busca al principio de la lista. Ejemplo '^Root'
+	'$' ~ busca al final de la linea. Ejemplo 'Root$'
+	-n ~ muestra el numero de linea donde se encuentra la coincidencia
+	
+EGREP - extension de GREP, permite buscar de manera mas compleja
+
+Tambien hay comandos predeterminados escrito de forma [:comando:]
+	
